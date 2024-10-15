@@ -1,19 +1,20 @@
-# Import the necessary libraries
+# Контролируемый: учится на примерах с надписями и стремится предсказать будущие надписи.
+# Supervised Learning
+
 import numpy as np
 import matplotlib.pyplot as plt
-from sklearn.model_selection import train_test_split
-from sklearn.linear_model import LinearRegression
+from sklearn.model_selection import train_test_split  #функция для разделения данных на обучающую и тестовую части.
+from sklearn.linear_model import LinearRegression     #класс, который создает модель линейной регрессии.
 from sklearn.metrics import mean_squared_error
 
 # Generate some example data (x: house size, y: house price)
 np.random.seed(42)  # For reproducibility
 x = 2 * np.random.rand(100, 1)  # House size (in 1000 square feet)
-y = 4 + 3 * x + np.random.randn(100, 1)  # House price (in $1000s)
+y = 4 + 3 * x + np.random.randn(100, 1)  # House price (in $1000s)  # House price (in $1000s)
 
 # Split the data into training and testing sets
-x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=42)
+x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.5, random_state=42)
 
-# Create a Linear Regression model
 model = LinearRegression()
 
 # Train the model on the training data
@@ -33,6 +34,3 @@ plt.xlabel('House Size (1000 sq ft)')
 plt.ylabel('House Price ($1000s)')
 plt.legend()
 plt.show()
-
-
-
